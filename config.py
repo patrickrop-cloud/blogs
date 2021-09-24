@@ -1,3 +1,4 @@
+import app
 import os
 
 class Config:
@@ -10,6 +11,7 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    # mail = Mail(app)
 
 class ProdConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL','')
@@ -20,6 +22,6 @@ class DevConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://patrick:patrick@localhost/blogs'
 
 config_options = {
-    'developmen':DevConfig,
+    'development':DevConfig,
     'production':ProdConfig
 }
