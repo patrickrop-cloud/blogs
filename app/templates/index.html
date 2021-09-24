@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{%block content%}
+<div class="valign-wrapper ba-jumbotron">
+    <div class="container center-align">
+        <h3>My Blogs</h3>
+    </div>
+</div>
+<div class="container">
+    
+    <hr>
+    <br>
+    <p class="center" style="font-size: 30px;">{{quote.quote}}</p>
+    <p class="center" style="font-size: 30px;"><strong>Author: </strong>{{quote.author}}</p>
+    <div class="row">
+      
+    </div>
+</div>
+ <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+              <p >Copyright &copy; Patrick Rop 2021</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      {% endblock %}
