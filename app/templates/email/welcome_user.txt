@@ -1,0 +1,3 @@
+Hello {{user.name}}
+Welcome to blog post website
+We just saw you've signed up for our application. Welcome and enjoy!
