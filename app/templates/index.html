@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
+
+{% block styles%} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+{% endblock %}
+
 {%block content%}
 <div class="container" style="background-color: aqua; border-radius: 30px;">
   <div class="row">
@@ -24,4 +30,4 @@
   </footer>
 </div>
 </div>
-      {% endblock %}
+{% endblock %}

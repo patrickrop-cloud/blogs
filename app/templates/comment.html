@@ -1,0 +1,38 @@
+{% extends 'base.html'%} {% import "bootstrap/wtf.html" as wtf %} {% block
+    styles%} {{ super() }}
+    <link rel="stylesheet" href="../static/css/index.css" />
+    {% endblock %} {% block content %}
+
+    <div>
+
+    <body>
+        <div class="container">
+            <h3 style="text-align: center;">Take a look at New Comments</h3>
+            {% for comm in comment[::-1] %}
+            <div class="col-sm">
+                <div class="well well-lg p-3" id="card" style="text-align: center">
+    
+                    <hr />
+    
+                    <div class="card col-sm mt-2">
+    
+                        <h4 class="card-title">{{comm.author}}</h4>
+                        <p class="card-text">{{comm.comment}}.</p>
+    
+                        <div class="card-footer bg-transparent border-success">
+                            <small>Publish date:{{comm.date_posted.strftime('%Y-%m-%d')}}</small>
+    
+                        </div>
+                        <a href="{{url_for( 'main.deleteComment', id= comm.id)}}"><button>delete</button></a>
+                    </div>
+                    <br>
+    
+                </div>
+            </div>
+    
+            {% endfor %}
+        </div>
+    </body>
+</div>
+    
+    {% endblock %}
