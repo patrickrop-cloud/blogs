@@ -1,18 +1,33 @@
 {% extends 'base.html' %}
+
+{% block styles%} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
-<div class = "valign-wrapper">
+
+{% for blog in all_blogs%}
+<div class="container" style="background-color: aqua; border-radius: 25px;"> 
     <div class = "container">
-        <div class="row">
-        <div class="col l3 m3 s12"></div>
-        <div class="col l6 m6 s12">
-        <br>
-        {% for blog in all_blogs%}
-        <h1>{{blog.title}}</h1>
-        <p class="black-text">By {{blog.user.username}}</p>
-        <p>{{blog.content}}</p>
-        <br><hr><br><br>
-         <a href="{{url_for('main.new_comment', id=blog.id)}}">comment</a>
-         <a href="{{url_for('main.deleteBlog',id = blog.id)}}">delete blog</a>
-         <a href="{{url_for('main.updateBlog',id = blog.id)}}">update blog</a>
-        {% endfor%}
-    {% endblock %}
+    <div class="row">
+        <div class="col l3 m3 s9">
+            <h2>{{blog.title}}</h2>
+            <p class="black-text">By {{blog.user.username}}</p>
+            <p>{{blog.content}}</p>
+            <!-- <br><hr><br><br> -->
+            <div>
+            <a href="{{url_for('main.new_comment', id=blog.id)}}">Comment</a><br>
+            <a href="{{url_for('main.deleteBlog',id = blog.id)}}">Delete blog</a><br>
+            <a href="{{url_for('main.updateBlog',id = blog.id)}}">Update blog</a><br>
+            </div>
+            
+            <hr>
+            <br>
+         </div>
+    </div>
+    </div>
+</div>
+
+{% endfor%}
+{% endblock %}

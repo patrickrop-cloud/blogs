@@ -4,29 +4,31 @@
 {% block styles%}
 {{ super() }}
 <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-
-        <div class="col-md-8">
+<div class="container" style="text-align: center; background-color: aqua;">
+        <div class="col-md-3">
             {{blogs}}
         </div>
         <div class="col-md-4">
-                <h3 class="text-center">leave a comment</h3>
+        <h2 class="text-center">leave us a comment!</h2>
             {{ wtf.quick_form(comment_form) }}
         </div>
+    <div>
+        <!-- <div class="col-md-3"> -->
+        <h3 class="mt-3 pb-3">Comments</h3>
+        {%for comment in blog_comment[::-1]%}
+        <p>{{comment.content}}</p>
 
-
-        <div class="col-md-4">
-            <h3 class="mt-3 pb-3">Comments</h3>
-            <hr>
-            {%for comment in blog_comment[::-1]%}
-            <p>{{comment.content}}</p>
-            
-            <p> By: {{comment.user.username}}</p>            
-            <a href="{{url_for('main.deleteComment',id = comment.id)}}">delete</a>
-            {%endfor%}
+        <p> By: {{comment.user.username}}</p>            
+        <a href="{{url_for('main.deleteComment',id = comment.id)}}">delete</a>
+        {%endfor%}
     </div>
+
+    
+</div>
+
 
 {% endblock %}
