@@ -1,0 +1,4 @@
+Flask>=0.10
+
+[test]
+pytest>=2.8.2
