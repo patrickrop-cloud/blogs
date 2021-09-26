@@ -1,20 +1,18 @@
 {% extends 'base.html' %}
 {%block content%}
-<div class="valign-wrapper ba-jumbotron">
-    <div class="container center-align">
-        <h3>My Blogs</h3>
+<div class="container" style="background-color: aqua; border-radius: 30px;">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title" style="text-align: center; font-size: 40px;">Featured</h2>
+          <p class="card-text" style="font-size: 30px; font-size: 30px; color: red;">Popular Blogs</p>
+          <p class="center" style="font-size: 30px;">{{quote.quote}}</p>
+          <p class="center" style="font-size: 30px;"><strong>Author: </strong>{{quote.author}}</p>
+          
+        </div>
+      </div>
     </div>
-</div>
-<div class="container">
-    
-    <hr>
-    <br>
-    <p class="center" style="font-size: 30px;">{{quote.quote}}</p>
-    <p class="center" style="font-size: 30px;"><strong>Author: </strong>{{quote.author}}</p>
-    <div class="row">
-      
-    </div>
-</div>
  <footer>
         <div class="container">
           <div class="row">
@@ -23,5 +21,7 @@
             </div>
           </div>
         </div>
-      </footer>
+  </footer>
+</div>
+</div>
       {% endblock %}
